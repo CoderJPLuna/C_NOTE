@@ -96,14 +96,14 @@ int main()
 }
 ```
 
-> sizeof char = 1
-> sizeof short =2
-> sizeof int = 4
-> sizeof long = 4
-> sizeof long long = 8
-> sizeof float = 4
-> sizeof double = 8
-> sizeof long double = 8
+> sizeof char = 1  
+> sizeof short =2  
+> sizeof int = 4  
+> sizeof long = 4  
+> sizeof long long = 8  
+> sizeof float = 4  
+> sizeof double = 8  
+> sizeof long double = 8  
 
 **sizeof运算符**
 
