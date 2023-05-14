@@ -246,9 +246,9 @@ C语言中的常量分为以下几种：
 * #define定义的标识符常量
 * 枚举常量
 
-**字面常量：**指的是直接输入到程序中的值。
+**字面常量：** 指的是直接输入到程序中的值。
 
-**const修饰的常变量：**const修饰的变量具有常量属性，本质上依然是变量。
+**const修饰的常变量：** const修饰的变量具有常量属性，本质上依然是变量。
 
 ```C{.line-numbers}
 #include<stdio.h>
@@ -274,7 +274,7 @@ int main()
 }
 ```
 
-**枚举常量（enumerated type）：**可以一一列举的常量。
+**枚举常量（enumerated type）：** 可以一一列举的常量。
 
 ```C{.line-numbers}
 #include<stdio.h>
