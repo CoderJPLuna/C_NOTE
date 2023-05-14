@@ -1,6 +1,6 @@
 # 初识C语言
 
-## 1.什么是C语言
+## 1. 什么是C语言
 
 C语言是一门通用计算机编程语言，广泛应用于底层开发。C语言的设计目标是提供一种能以简易的方式编译、处理低级存储器、产生少量的机器码以及不需要任何运行环境支持便能运行的编程语言。
 
@@ -12,7 +12,7 @@ C语言是一门面向过程的计算机编程语言，与C++、Java等面向对
 
 其编译器主要有Clang、GCC、WIN-TC、SUBLIME、MSVC、Turbo C等。
 
-## 2.第一个C语言程序
+## 2. 第一个C语言程序
 
 ```C{.line-numbers}
 #include<stdio.h>
@@ -68,7 +68,7 @@ int是C语言的一个关键字（keyword），表示一种基本的C语言数�
 
 printf()函数会查看双引号中的内容，并将其打印在屏幕上。
 
-## 3.数据类型
+## 3. 数据类型
 
 ```C{.line-numbers}
 char          //字符数据类型
@@ -78,6 +78,14 @@ long          //长整型
 long long     //超长整型
 float         //单精度浮点数
 double        //双精度
+```
+
+类型的使用：
+
+```C{.line-numbers}
+char ch='A';
+int weight=120;
+int salary=20000;
 ```
 
 ```C{.line-numbers}
@@ -122,3 +130,182 @@ KB-千字节 1KB=1024B
 GB-吉字节 1MB=1024KB
 
 TB-太字节 1TB=1024GB
+
+**typedef**
+
+typedef是C语言中的一个关键字，作用是为现有的数据类型创建一个新的名字，目的是为了使代码方便阅读和理解。
+
+1. 对于数据类型的使用
+   ```C{.line-numbers}
+   typedef int new_int;
+   new_int num=10;
+   ```
+2. 对于指针的使用
+   ```C{.line-numbers}
+   typedef int* pint;
+   pint p;
+   ```
+3. 对于结构体的使用
+   ```C{.line-numbers}
+   typedef struct NUM
+   {
+      int a;
+   }NUM,*pNUM;
+   NUM num;
+   pNUM pnum;
+   ```
+
+## 4. 变量、常量
+
+**常量（constant）**
+
+有些数据类型在程序使用之前已经预先设定好了，在整个程序的运行过程中没有变化，这些称为常量。
+
+**变量（variable）**
+
+有些数据类型在程序运行期间可能会改变或被赋值，这些称为变量。
+
+### 4.1 定义变量的方法
+
+```C{.line-numbers}
+int age=150;
+float weight=45.5f;
+char ch='w';
+```
+
+### 4.2 变量的分类
+
+* 局部变量
+* 全局变量
+
+```C{.line-numbers}
+#include<stdio.h>
+int global=2019;//全局变量
+int main()
+{
+    int local=2018;//局部变量
+    int global =2020;//局部变量
+    printf("global = %d\n",global);
+    return 0;
+}
+```
+
+> global = 2020  
+
+**总结**
+
+上面的局部变量global变量的定义没有问题。
+
+当局部变量和全局变量同名时，局部变量优先使用。
+
+### 4.3 变量的使用
+
+```C{.line-numbers}
+#include<stdio.h>
+int main()
+{
+    int num1=0;
+    int num2=0;
+    int sum=0;
+    printf("输入两个操作数:>")；
+    scanf("%d %d",&num1,&num2);
+    sum=num1+num2;
+    printf("sum=%d\n",sum);
+    return 0;
+}
+```
+
+### 4.4 变量的作用域和生命周期
+
+**作用域**
+
+作用域描述程序中可访问标识符的区域。
+
+一个C变量的作用域可以是块作用域、函数作用域、函数原型作用域或文件作用域。
+
+块是一对花括号括起来的代码区域。
+
+局部变量的作用域是变量所在的局部范围。
+
+全局变量的作用域是整个工程。
+
+**生命周期**
+
+变量的生命周期指的是变量的创建到销毁的一个时间段。
+
+局部变量的生命周期是进入作用域生命周期开始，出作用域生命周期结束。
+
+全局变量的生命周期是整个程序的生命周期。
+
+### 4.5 常量
+
+C语言中的常量分为以下几种：
+
+* 字面常量
+* const修饰的常变量
+* #define定义的标识符常量
+* 枚举常量
+
+**字面常量：**指的是直接输入到程序中的值。
+
+**const修饰的常变量：**const修饰的变量具有常量属性，本质上依然是变量。
+
+```C{.line-numbers}
+#include<stdio.h>
+int main()
+{
+    const int num=10;
+    num=20;//错误
+}
+```
+
+num被称为const修饰的常变量，const修饰的常变量在C语言中只是在语法层面限制了变量num不能直接被改变，但是num本质上还是一个变量，所以叫常变量。
+
+**define定义的常量标识符**
+
+```C{.line-numbers}
+#include<stdio.h>
+#define N 100
+int main()
+{
+    int n=N;
+    printf("%d\n",n);
+    return 0;
+}
+```
+
+**枚举常量（enumerated type）：**可以一一列举的常量。
+
+```C{.line-numbers}
+#include<stdio.h>
+enum SEX
+{
+    Male,
+    Female,
+    Secret
+};
+int main()
+{
+    enum SEX M=Male;
+    enum SEX F=Female;
+    enum SEX S=Secret;
+    printf("%d\n",M);
+    printf("%d\n",Male);
+    printf("%d\n",F);
+    printf("%d\n",Female);
+    printf("%d\n",S);
+    printf("%d\n",Secret);
+    return 0;
+}
+```
+
+> 0  
+> 0  
+> 1  
+> 1  
+> 2  
+> 2  
+
+枚举常量的值默认从0开始，依次加1。
+
+## 5. 字符串+转义字符+注释
