@@ -46,31 +46,31 @@ main()函数必须是开始的函数。
 
 **int**
 
- int是main()函数的返回类型。这表明main()函数返回的值是整数。
+int是main()函数的返回类型。这表明main()函数返回的值是整数。
 
- int是C语言的一个关键字（keyword），表示一种基本的C语言数据类型——整型。
+int是C语言的一个关键字（keyword），表示一种基本的C语言数据类型——整型。
 
- 关键字是语言定义的单词，不能作其它用途。
+关键字是语言定义的单词，不能作其它用途。
 
- **花括号、函数体、和块**
+**花括号、函数体、和块**
 
- 一般而言，所有的C函数都使用花括号标记函数体的开始和结束。
+一般而言，所有的C函数都使用花括号标记函数体的开始和结束。
 
- 花括号还可用于把函数中的多条语句合并为一个单元或块。
+花括号还可用于把函数中的多条语句合并为一个单元或块。
 
- **printf()函数**
+**printf()函数**
 
- 圆括号表明printf是一个函数名。
+圆括号表明printf是一个函数名。
 
- 圆括号中的内容是从main()函数传递给printf()函数的信息。
+圆括号中的内容是从main()函数传递给printf()函数的信息。
 
- 该信息是函数的实际参数（actual argument），是传给函数的特定值，形式参数（Formal Parameter）是函数中用于存储值的变量。
+该信息是函数的实际参数（actual argument），是传给函数的特定值，形式参数（Formal Parameter）是函数中用于存储值的变量。
 
- printf()函数会查看双引号中的内容，并将其打印在屏幕上。
+printf()函数会查看双引号中的内容，并将其打印在屏幕上。
 
- ## 3.数据类型
+## 3.数据类型
 
- ```C{.line-numbers}
+```C{.line-numbers}
 char          //字符数据类型
 short         //短整型
 int           //整型
@@ -81,5 +81,44 @@ double        //双精度
 ```
 
 ```C{.line-numbers}
-sizeof(int)
+#include<stdio.h>
+int main()
+{
+    printf("sizeof char = %d\n",sizeof(char));
+    printf("sizeof short = %d\n",sizeof(short));
+    printf("sizeof int = %d\n",sizeof(int));
+    printf("sizeof long = %d\n",sizeof(long));
+    printf("sizeof long long = %d\n",sizeof(long long));
+    printf("sizeof float = %d\n",sizeof(float));
+    printf("sizeof double = %d\n",sizeof(double));
+    printf("sizeof long double = %d\n",sizeof(long double));
+    return 0;
+}
 ```
+
+> sizeof char = 1
+> sizeof short =2
+> sizeof int = 4
+> sizeof long = 4
+> sizeof long long = 8
+> sizeof float = 4
+> sizeof double = 8
+> sizeof long double = 8
+
+**sizeof运算符**
+
+sizeof运算符以字节为单位返回运算对象的大小，运算对象可以是具体的数据对象或类型。
+
+如果运算对象是类型，则必须用圆括号将其括起来。
+
+**计算机中的单位**
+
+bit-比特 存放一位二进制数，即0或1，最小的存储单位
+
+byte-字节（B） 最常用的单位，一个英文字母、标点占一个字节，一个中文汉字、标点占两个字节。
+
+KB-千字节 1KB=1024B
+
+GB-吉字节 1MB=1024KB
+
+TB-太字节 1TB=1024GB
